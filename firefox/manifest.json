@@ -1,0 +1,28 @@
+{
+
+  "manifest_version": 2,
+  "name": "Report-Sample-Injector",
+  "version": "1.1",
+
+  "description": "This addon edits the incoming CSP header(s) to include the 'report-sample' value for the 'script-src', 'script-src-elem', 'script-src-attr', 'style-src', 'style-src-elem', 'style-src-attr', and 'object-src' (although currently unsupported) directives, only if the specific directive is present and does not include 'report-sample', and the directive 'report-uri' is present with an endpoint specified.",
+
+  "icons": {
+    "48": "icons/report-sample-48.png"
+  },
+
+  "permissions": [
+    "webRequest",
+    "<all_urls>",
+    "webRequestBlocking"
+  ],
+
+  "background": {
+    "scripts": ["report-sample.js"]
+  },
+
+  "applications": {
+    "gecko": {
+      "id": "emanuele.uliana.90@gmail.com"
+    }
+  }
+}

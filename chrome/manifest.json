@@ -1,0 +1,22 @@
+{
+
+  "manifest_version": 2,
+  "name": "Report-Sample-Injector",
+  "version": "1.1",
+
+  "description": "This addon edits the CSP header(s) to include a missing 'report-sample' for certain directives if a report-uri endpoint is included.",
+
+  "icons": {
+    "48": "icons/report-sample-48.png"
+  },
+
+  "permissions": [
+    "webRequest",
+    "<all_urls>",
+    "webRequestBlocking"
+  ],
+
+  "background": {
+    "scripts": ["report-sample.js"]
+  }
+}
