@@ -7,7 +7,7 @@
   "description": "This addon edits the CSP header(s) to include a missing 'report-sample' for certain directives if a report-uri endpoint is included.",
 
   "icons": {
-    "48": "icons/report-sample-48.png"
+    "48": "icons/rsi.png"
   },
 
   "permissions": [
