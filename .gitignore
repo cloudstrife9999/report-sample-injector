@@ -1,3 +1,8 @@
+#Visual Studio Code config files
 .vscode
 
+#ZIP files (essentially the packed extensions)
 *.zip
+
+#Locally relevant files
+TODO.txt
