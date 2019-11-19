@@ -2,7 +2,7 @@ var cspHeaderNames = ["content-security-policy", "content-security-policy-report
 var relevantCSPDirectives = ["script-src", "script-src-elem", "script-src-attr", "style-src", "style-src-elem", "style-src-attr"]
 var reportUriDirectiveName = "report-uri"
 var reportSampleValue = "'report-sample'"
-
+var debug = true; //(Version 1.2+) Change this to false for releases.
 
 function doesDirectiveExist(cspTokens, directive) {
     for(let cspToken of cspTokens) {
@@ -112,7 +112,7 @@ function editHeaders(e) {
         let h = getNewHeader(header);
         
         //We print the CSP header just for debug, but only if it exists and modifications have been performed on it.
-        if(isCSP(h["name"]) && h["value"] !== header["value"]) {
+        if(debug && isCSP(h["name"]) && h["value"] !== header["value"]) {
             console.log("New CSP:");
             console.log(h);
         }
@@ -140,8 +140,10 @@ function checkHeaders(e) {
     return e;
 }
 
-browser.webRequest.onResponseStarted.addListener(
-    checkHeaders,
-    {"urls": ["*://*/*"]},
-    ["responseHeaders"]
-);
+if(debug) {
+    browser.webRequest.onResponseStarted.addListener(
+        checkHeaders,
+        {"urls": ["*://*/*"]},
+        ["responseHeaders"]
+    );
+}
